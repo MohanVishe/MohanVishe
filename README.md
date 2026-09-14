@@ -80,7 +80,7 @@ PyPDF, PDFPlumber and PDFMiner against LlamaParse and AWS Textract — one harne
 
 Embedding-based similarity search served over HTTP — find the closest products to any query.
 
-`Embeddings` · `Semantic search` · `Flask`
+`FastAPI` · `Chroma` · `Embeddings`
 
 </td>
 <td width="50%" valign="top">
