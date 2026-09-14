@@ -76,28 +76,28 @@ PyPDF, PDFPlumber and PDFMiner against LlamaParse and AWS Textract — one harne
 <tr>
 <td width="50%" valign="top">
 
-### 🔍 [Product Similarity API](https://github.com/MohanVishe/product-similarity-api)
+### 🎯 [HabitLoop](https://github.com/MohanVishe/ai-habit-tracker)
 
-Embedding-based similarity search served over HTTP — find the closest products to any query.
+A habit tracker whose AI coach can only tell you what your own log actually says.
 
-`FastAPI` · `Chroma` · `Embeddings`
+Statistics are computed in Python and **tested**; the model interprets them and never does arithmetic. Runs on open weights.
+
+`LangChain` · `Llama 3` · `Streamlit` · `SQLite`
 
 </td>
 <td width="50%" valign="top">
 
-### 📈 [Rossmann Sales Forecasting](https://github.com/MohanVishe/rossmann-sales-forecasting)
+### 🔍 [Product Similarity API](https://github.com/MohanVishe/product-similarity-api)
 
-Daily sales forecasting across 1,115 stores — EDA, feature engineering, model comparison.
+Embedding-based similarity search served over HTTP — find the closest products to any query, then filter by price and rating.
 
-My classical-ML foundation, kept because the fundamentals still matter.
-
-`scikit-learn` · `pandas` · `Regression`
+`FastAPI` · `Chroma` · `Embeddings`
 
 </td>
 </tr>
 </table>
 
-Also built an **AI Habit Tracker** (LangChain + an open-source LLM + Streamlit) for a community AI hackathon — weekly analysis, a 7-day plan, and a coach grounded in your own logged history. Demo is on [LinkedIn](https://www.linkedin.com/in/mohanvishe).
+Plus **[Rossmann Sales Forecasting](https://github.com/MohanVishe/rossmann-sales-forecasting)** — daily sales across 1,115 stores, where tree models took test R² from 0.836 to 0.965. Kept because the fundamentals still matter.
 
 ---
 
