@@ -29,7 +29,7 @@ Evaluate   →  benchmark before choosing; gate releases on measured quality, no
 Ship       →  AWS, Docker, microservices — then watch whether anyone actually adopts it
 ```
 
-**The habit that defines my work: I measure before I choose.** A model swap has to prove itself on accuracy against a fixed benchmark before cost enters the conversation. That instinct is public in [nl2sql-reliability](https://github.com/MohanVishe/nl2sql-reliability) and [pdf-parser-benchmark](https://github.com/MohanVishe/pdf-parser-benchmark), and private in the evaluation harness behind the products below.
+**The habit that defines my work: I measure before I choose.** A model swap has to prove itself on accuracy against a fixed benchmark before cost enters the conversation. That instinct is public in [nl2sql-finetune-reliability](https://github.com/MohanVishe/nl2sql-finetune-reliability), [nl2sql-reliability](https://github.com/MohanVishe/nl2sql-reliability) and [pdf-parser-benchmark](https://github.com/MohanVishe/pdf-parser-benchmark), and private in the evaluation harness behind the products below.
 
 ---
 
@@ -48,6 +48,22 @@ Ship       →  AWS, Docker, microservices — then watch whether anyone actuall
 ---
 
 ## 🔬 Public projects
+
+### 🎛️ [Does Fine-Tuning Buy Reliability?](https://github.com/MohanVishe/nl2sql-finetune-reliability)
+
+**Everyone fine-tunes to make a model more dependable. I trained one and measured whether that is what you get.**
+
+QLoRA fine-tune of Qwen2.5-Coder-3B on 5,851 examples, then 4,980 fresh attempts scored against an **untrained control** put through the identical pipeline — proven byte-identical to the published model across all 434 weight blocks before any comparison was allowed.
+
+Capability and reliability both rose **4.4 points**, so the reliability gap did not move: `+0.0 [−4.6, +4.4]`. What training did buy was worse than nothing for a production system — **execution errors fell 19.8 points while silently wrong answers rose 14.5**: only a quarter of the queries it repaired became correct, the rest run fine and return the wrong rows. And the fine-tuned 3B **ties a prompted 7B on benchmark score while being 12.7 points worse at repeating itself** — the cheap swap that no ordinary evaluation would flag.
+
+Hypothesis and decision rule registered before training, reported unchanged when the result supported neither. Every one of the 9,920 generations published.
+
+`PyTorch` · `PEFT / QLoRA` · `TRL` · `bitsandbytes` · `llama.cpp / GGUF` · `Ollama` · `Qwen2.5-Coder`
+
+📄 [Full write-up](https://mohanvishe.vercel.app/projects/nl2sql-finetune-reliability)
+
+---
 
 ### 🧪 [NL2SQL Reliability Study](https://github.com/MohanVishe/nl2sql-reliability)
 
@@ -132,6 +148,8 @@ Plus **[Rossmann Sales Forecasting](https://github.com/MohanVishe/rossmann-sales
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
 ![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white)
 ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white)
+![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=flat-square&logo=pytorch&logoColor=white)
+![Hugging Face](https://img.shields.io/badge/Hugging_Face-FFD21E?style=flat-square&logo=huggingface&logoColor=black)
 ![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?style=flat-square&logo=scikitlearn&logoColor=white)
 ![pandas](https://img.shields.io/badge/pandas-150458?style=flat-square&logo=pandas&logoColor=white)
 
@@ -140,6 +158,7 @@ Plus **[Rossmann Sales Forecasting](https://github.com/MohanVishe/rossmann-sales
 | 🧠 **AI & LLM** | LLMs · Generative AI · RAG · Agentic AI · Multi-agent systems · Tool calling · MCP · Prompt engineering · Structured outputs · Guardrails · Hallucination reduction · Embeddings · Vector databases · NL2SQL · Chatbots |
 | 📏 **Evaluation & quality** | LLM evaluation · Model evaluation · Observability · LangSmith tracing · Metrics · Cost & latency optimisation · Experimentation |
 | ⚙️ **Backend & cloud** | Python · FastAPI · REST APIs · SQL · PostgreSQL · System design · Scalability · Integrations · Data pipelines · Workflow automation · AWS · Docker · Git · CI/CD · Model deployment |
+| 🎛️ **Fine-tuning** | LoRA · QLoRA · PEFT · TRL · PyTorch · bitsandbytes 4-bit NF4 · Adapter merging · Quantization (GGUF / llama.cpp) · Training-data contamination control · Held-out validation |
 | 📊 **ML & data** | Machine learning · Data science · Regression · SQL analytics · Analytics |
 | 🧭 **Product** | Product management · Roadmaps · PRDs · Acceptance criteria · Prototyping · Wireframing · Agile · Cross-functional delivery · Stakeholder management |
 
