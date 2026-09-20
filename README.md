@@ -8,6 +8,7 @@
 
 Production RAG · AI agents · NL2SQL · Document intelligence
 
+[![Portfolio](https://img.shields.io/badge/Portfolio-mohanvishe.vercel.app-111111?style=for-the-badge&logo=vercel&logoColor=white)](https://mohanvishe.vercel.app/)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mohanvishe)
 [![Email](https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:mohanvishe.plus@gmail.com)
 [![Agent Platform](https://img.shields.io/badge/Live-agent.futuresmart.ai-6E56CF?style=for-the-badge)](https://agent.futuresmart.ai/)
@@ -28,7 +29,7 @@ Evaluate   →  benchmark before choosing; gate releases on measured quality, no
 Ship       →  AWS, Docker, microservices — then watch whether anyone actually adopts it
 ```
 
-**The habit that defines my work: I measure before I choose.** A model swap has to prove itself on accuracy against a fixed benchmark before cost enters the conversation. That instinct is public in [pdf-parser-benchmark](https://github.com/MohanVishe/pdf-parser-benchmark), and private in the evaluation harness behind the products below.
+**The habit that defines my work: I measure before I choose.** A model swap has to prove itself on accuracy against a fixed benchmark before cost enters the conversation. That instinct is public in [nl2sql-reliability](https://github.com/MohanVishe/nl2sql-reliability) and [pdf-parser-benchmark](https://github.com/MohanVishe/pdf-parser-benchmark), and private in the evaluation harness behind the products below.
 
 ---
 
@@ -47,6 +48,20 @@ Ship       →  AWS, Docker, microservices — then watch whether anyone actuall
 ---
 
 ## 🔬 Public projects
+
+### 🧪 [NL2SQL Reliability Study](https://github.com/MohanVishe/nl2sql-reliability)
+
+**Ask an AI the same database question ten times — do you get the same right answer?** 14,940 scored generations say no.
+
+Every published text-to-SQL score comes from asking each question once. This asks ten times and reports both `pass@10` (right at least once — capability) and `pass^10` (right every time — reliability). The gap is **13.7 points**, and **41% of attempts ran without error and returned the wrong rows** — silent failures outnumber crashes more than 2 to 1. An agentic retry loop raised both scores and left the gap unchanged; a smaller model nearly doubled it.
+
+Expert-corrected benchmark, no LLM-as-judge, every raw attempt published so any reader can recompute the numbers. 251 tests in CI. Run locally at zero cost.
+
+`Python` · `Ollama` · `Qwen2.5-Coder` · `SQLite` · `pytest` · `GitHub Actions`
+
+📄 [Full write-up](https://mohanvishe.vercel.app/projects/nl2sql-reliability)
+
+---
 
 <table>
 <tr>
@@ -138,7 +153,7 @@ Plus **[Rossmann Sales Forecasting](https://github.com/MohanVishe/rossmann-sales
 
 👀 Open to **AI Engineer** and **Technical Product Manager** roles
 
-📫 **mohanvishe.plus@gmail.com** · [LinkedIn](https://www.linkedin.com/in/mohanvishe)
+📫 **mohanvishe.plus@gmail.com** · [LinkedIn](https://www.linkedin.com/in/mohanvishe) · [mohanvishe.vercel.app](https://mohanvishe.vercel.app/)
 
 <div align="center">
 <br>
