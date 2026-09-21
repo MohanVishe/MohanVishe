@@ -79,6 +79,18 @@ Expert-corrected benchmark, no LLM-as-judge, every raw attempt published so any 
 
 ---
 
+### 📐 [Decisions in AI Systems](https://github.com/MohanVishe/product-case-studies)
+
+Two write-ups on one argument: **the price per token is the easiest number to read and the least useful one to decide on.**
+
+*Cheaper per token, more expensive per task* — in an agentic loop you pay per completed task, and a model 4× cheaper per token lands 16% more expensive per success; with caching it flips to 27% cheaper, and on a leaf node to 75%. So the piece builds the evaluation that answers it: an 8-tool agent, 24 graded multi-turn tasks, 120 conversations per configuration. At the orchestrator the small model needs to be **3.84× cheaper just to break even** (22% of tasks passed against 63%); at the leaf node, **1.13×**.
+
+*The cheaper model won on price. We didn't switch.* — the same argument as a product decision, where accuracy gates before cost is considered at all.
+
+`Python` · `Agent evaluation` · `Cost modelling` · `Ollama`
+
+---
+
 <table>
 <tr>
 <td width="50%" valign="top">
