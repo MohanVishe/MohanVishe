@@ -4,7 +4,7 @@
 
 ### I build AI systems — and decide what ships.
 
-**Technical Product Manager & AI Engineer** at [FutureSmart AI](https://futuresmart.ai)
+**AI Engineer & Technical Product Manager** at [FutureSmart AI](https://futuresmart.ai)
 
 Production RAG · AI agents · NL2SQL · Document intelligence
 
@@ -83,9 +83,9 @@ Expert-corrected benchmark, no LLM-as-judge, every raw attempt published so any 
 
 Two write-ups on one argument: **the price per token is the easiest number to read and the least useful one to decide on.**
 
-*Cheaper per token, more expensive per task* — in an agentic loop you pay per completed task, and a model 4× cheaper per token lands 16% more expensive per success; with caching it flips to 27% cheaper, and on a leaf node to 75%. So the piece builds the evaluation that answers it: an 8-tool agent, 24 graded multi-turn tasks, 120 conversations per configuration. At the orchestrator the small model needs to be **3.84× cheaper just to break even** (22% of tasks passed against 63%); at the leaf node, **1.13×**.
+*Cheaper per token, more expensive per task* — in an agentic loop you pay per completed task, and in a worked example a model 4× cheaper per token lands 16% more expensive per success; with caching it flips to 27% cheaper. So the piece builds the evaluation that answers it for real: an 8-tool agent, 24 graded multi-turn tasks, 120 conversations per model. At the orchestrator the small model needs to be **4.1× cheaper per token just to break even** (95% CI 2.4–7.5×; 20% of tasks passed against 62.5%), and caching doesn't rescue it. On a separate single-call router, break-even is **1.13×**. Same two models, two kinds of node, opposite answers.
 
-*The cheaper model won on price. We didn't switch.* — the same argument as a product decision, where accuracy gates before cost is considered at all.
+*Price comes last* — the same argument as a product decision, where accuracy gates before cost is considered at all.
 
 `Python` · `Agent evaluation` · `Cost modelling` · `Ollama`
 
@@ -97,22 +97,22 @@ Two write-ups on one argument: **the price per token is the easiest number to re
 
 ### 🩺 [Medical RAG Chatbot](https://github.com/MohanVishe/medical-rag-chatbot)
 
-Medical Q&A grounded in a PDF corpus.
+Medical Q&A grounded in a PDF corpus, every answer citing the pages it came from.
 
-**The interesting part isn't retrieval — it's refusal.** Getting it to say *"my sources don't cover that"* instead of confidently improvising is the half most RAG demos skip.
+**The interesting part isn't retrieval — it's refusal.** Probing showed why a similarity threshold alone can't make it say *"my sources don't cover that"*: out-of-corpus medical questions score as close as in-scope ones.
 
-`Llama 3` · `LangChain` · `Pinecone` · `Flask`
+`Llama 2` · `LangChain` · `Pinecone` · `Flask`
 
 </td>
 <td width="50%" valign="top">
 
 ### 📑 [PDF Parser Benchmark](https://github.com/MohanVishe/pdf-parser-benchmark)
 
-Local parsers vs cloud services, on documents that actually break them.
+A scored benchmark harness: four hand-verified documents — ten scripts including right-to-left and Indic, three columns, a dense table, a scan — scored on character and word error rate.
 
-PyPDF, PDFPlumber and PDFMiner against LlamaParse and AWS Textract — one harness, same input, side-by-side output.
+No parser wins everywhere: one keeps three columns in reading order and loses every row of a ruled table, another keeps every row and reads straight across the columns.
 
-`NLP` · `LlamaParse` · `AWS Textract` · `Python`
+`Python` · `PyPDF` · `PDFPlumber` · `LlamaParse` · `AWS Textract`
 
 </td>
 </tr>
@@ -121,9 +121,9 @@ PyPDF, PDFPlumber and PDFMiner against LlamaParse and AWS Textract — one harne
 
 ### 🎯 [HabitLoop](https://github.com/MohanVishe/ai-habit-tracker)
 
-A habit tracker whose AI coach can only tell you what your own log actually says.
+A habit tracker whose AI coach is only given statistics computed from your own log — and whose answers are checked against them before you see them.
 
-Statistics are computed in Python and **tested**; the model interprets them and never does arithmetic. Runs on open weights.
+Streaks, rates and rankings are pure Python with **66 tests**; the model interprets them and never does arithmetic. Runs on open weights.
 
 `LangChain` · `Llama 3` · `Streamlit` · `SQLite`
 
@@ -132,7 +132,7 @@ Statistics are computed in Python and **tested**; the model interprets them and 
 
 ### 🔍 [Product Similarity API](https://github.com/MohanVishe/product-similarity-api)
 
-Embedding-based similarity search served over HTTP — find the closest products to any query, then filter by price and rating.
+Embedding-based product search served over HTTP, with price and rating filters applied inside the vector query — not after it — and a similarity score on every result.
 
 `FastAPI` · `Chroma` · `Embeddings`
 
@@ -140,7 +140,7 @@ Embedding-based similarity search served over HTTP — find the closest products
 </tr>
 </table>
 
-Plus **[Rossmann Sales Forecasting](https://github.com/MohanVishe/rossmann-sales-forecasting)** — daily sales across 1,115 stores, where tree models took test R² from 0.836 to 0.965. Kept because the fundamentals still matter.
+Plus **[Rossmann Sales Forecasting](https://github.com/MohanVishe/rossmann-sales-forecasting)** — a six-week-ahead forecast for 1,115 stores from inputs known at forecast time only, where LightGBM reaches RMSPE 0.1235 against 0.1449 for the strongest naive baseline. Kept because the fundamentals still matter.
 
 ---
 
