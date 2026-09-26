@@ -67,11 +67,11 @@ Hypothesis and decision rule registered before training, reported unchanged when
 
 ### 🧪 [NL2SQL Reliability Study](https://github.com/MohanVishe/nl2sql-reliability)
 
-**Ask an AI the same database question ten times — do you get the same right answer?** 14,940 scored generations say no.
+**Ask an AI the same database question ten times — do you get the same right answer?** 14,880 scored generations say no.
 
-Every published text-to-SQL score comes from asking each question once. This asks ten times and reports both `pass@10` (right at least once — capability) and `pass^10` (right every time — reliability). The gap is **13.7 points**, and **41% of attempts ran without error and returned the wrong rows** — silent failures outnumber crashes more than 2 to 1. An agentic retry loop raised both scores and left the gap unchanged; a smaller model nearly doubled it.
+Most leaderboard text-to-SQL scores come from asking each question once. This asks ten times and reports both `pass@10` (right at least once — capability) and `pass^10` (right every time — reliability). The gap is **13.9 points**, and **41% of attempts ran without error and returned rows that didn't match the reference** — silent failures outnumber crashes about 2.5 to 1. An agentic retry loop raised both scores with no detectable change to the gap; a smaller model widened it 1.7×.
 
-Expert-corrected benchmark, no LLM-as-judge, every raw attempt published so any reader can recompute the numbers. 251 tests in CI. Run locally at zero cost.
+Expert-corrected benchmark, no LLM-as-judge, every raw attempt published so any reader can recompute the numbers. 285 tests, 269 in CI. Run locally at zero cost.
 
 `Python` · `Ollama` · `Qwen2.5-Coder` · `SQLite` · `pytest` · `GitHub Actions`
 
