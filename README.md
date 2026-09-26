@@ -132,7 +132,7 @@ Streaks, rates and rankings are pure Python with **66 tests**; the model interpr
 
 ### 🔍 [Product Similarity API](https://github.com/MohanVishe/product-similarity-api)
 
-Embedding-based product search served over HTTP, with price and rating filters applied inside the vector query — not after it — and a similarity score on every result.
+Embedding-based product search served over HTTP, with price and rating filters applied inside the vector query — not after it — and a similarity score on every result. A 40-query retrieval eval runs in CI: recall@3 0.958, MRR 0.922.
 
 `FastAPI` · `Chroma` · `Embeddings`
 
