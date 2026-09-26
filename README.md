@@ -51,13 +51,13 @@ Ship       →  AWS, Docker, microservices — then watch whether anyone actuall
 
 ### 🎛️ [Does Fine-Tuning Buy Reliability?](https://github.com/MohanVishe/nl2sql-finetune-reliability)
 
-**Everyone fine-tunes to make a model more dependable. I trained one and measured whether that is what you get.**
+**Teams fine-tune to make a model more dependable. I trained one and measured whether that is what you get.**
 
-QLoRA fine-tune of Qwen2.5-Coder-3B on 5,851 examples, then 4,980 fresh attempts scored against an **untrained control** put through the identical pipeline — proven byte-identical to the published model across all 434 weight blocks before any comparison was allowed.
+QLoRA fine-tune of Qwen2.5-Coder-3B on 5,851 examples, then 4,960 scored attempts per model against an **untrained control** put through the identical pipeline — all 434 of its weight tensors verified byte-identical to the published model's before any comparison was allowed.
 
-Capability and reliability both rose **4.4 points**, so the reliability gap did not move: `+0.0 [−4.6, +4.4]`. What training did buy was worse than nothing for a production system — **execution errors fell 19.8 points while silently wrong answers rose 14.5**: only a quarter of the queries it repaired became correct, the rest run fine and return the wrong rows. And the fine-tuned 3B **ties a prompted 7B on benchmark score while being 12.7 points worse at repeating itself** — the cheap swap that no ordinary evaluation would flag.
+Capability rose **4.2 points** and reliability **4.4**, so the reliability gap showed no detectable change: `−0.2 [−4.8, +4.4]`. What training did buy has a catch for a production system — **execution errors fell 19.8 points while silently wrong answers rose 14.5**: in net rates, about a quarter of that drop became right answers and the rest became queries that run fine and return the wrong rows. And against a prompted 7B, the fine-tuned 3B can't be separated on pass@10 (`−3.8 [−7.9, +0.4]`) but is **8.1 points behind on a single try and 12.7 behind on right-every-time** — the cheap swap a capability-only comparison would wave through.
 
-Hypothesis and decision rule registered before training, reported unchanged when the result supported neither. Every one of the 9,920 generations published.
+Hypotheses and decision rule written down before training, reported as written when the result supported neither. Every one of the 9,920 scored generations published.
 
 `PyTorch` · `PEFT / QLoRA` · `TRL` · `bitsandbytes` · `llama.cpp / GGUF` · `Ollama` · `Qwen2.5-Coder`
 
