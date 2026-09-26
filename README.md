@@ -123,7 +123,7 @@ No parser wins everywhere: one keeps three columns in reading order and loses ev
 
 A habit tracker whose AI coach is only given statistics computed from your own log — and whose answers are checked against them before you see them.
 
-Streaks, rates and rankings are pure Python with **66 tests**; the model interprets them and never does arithmetic. Runs on open weights.
+Streaks, rates and rankings are pure Python; the model interprets them and never does arithmetic. A 153-answer eval on a local Qwen2.5-7B measures **77.8% correct** (95% CI 70.6–83.6%) and what the claim checker catches. 123 tests, CI.
 
 `LangChain` · `Llama 3` · `Streamlit` · `SQLite`
 
