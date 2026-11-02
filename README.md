@@ -83,7 +83,7 @@ Expert-corrected benchmark, no LLM-as-judge, every raw attempt published so any 
 
 Two write-ups on one argument: **the price per token is the easiest number to read and the least useful one to decide on.**
 
-*Cheaper per token, more expensive per task* — in an agentic loop you pay per completed task, and in a worked example a model 4× cheaper per token lands 16% more expensive per success; with caching it flips to 27% cheaper. So the piece builds the evaluation that answers it for real: an 8-tool agent, 24 graded multi-turn tasks, 120 conversations per model. At the orchestrator the small model needs to be **4.1× cheaper per token just to break even** (95% CI 2.4–7.5×; 20% of tasks passed against 62.5%), and caching doesn't rescue it. On a separate single-call router, break-even is **1.13×**. Same two models, two kinds of node, opposite answers.
+*Cheaper per token, more expensive per task* — in an agentic loop you pay per completed task, and in a worked example a model 4× cheaper per token lands 16% more expensive per success; with caching it flips to 27% cheaper. So the piece builds the evaluation that answers it for real: an 8-tool agent, 24 graded multi-turn tasks, 120 conversations per model. In a second run, with the graders frozen first, documenting every tool parameter doubled the small model's task success (20% → 41%) and cut the price advantage it needs to break even at the orchestrator from 4.1× to **1.5×** (95% CI 1.0–2.2×), still above the single-call router's **1.1×**. Same two models, two kinds of node, and the ordering held.
 
 *Price comes last* — the same argument as a product decision, where accuracy gates before cost is considered at all.
 
