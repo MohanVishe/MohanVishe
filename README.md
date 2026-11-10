@@ -69,7 +69,7 @@ Hypotheses and decision rule written down before training, reported as written w
 
 **Ask an AI the same database question ten times — do you get the same right answer?** 14,880 scored generations say no.
 
-Most leaderboard text-to-SQL scores come from asking each question once. This asks ten times and reports both `pass@10` (right at least once — capability) and `pass^10` (right every time — reliability). The gap is **13.9 points**, and **41% of attempts ran without error and returned rows that didn't match the reference** — silent failures outnumber crashes about 2.5 to 1. An agentic retry loop raised both scores with no detectable change to the gap; a smaller model widened it 1.7×.
+Most leaderboard text-to-SQL scores come from asking each question once. This asks ten times and reports both `pass@10` (right at least once: capability) and `pass^10` (right every time: reliability). The gap is **13.9 points**, and **41% of attempts ran without error and returned rows that didn't match the reference**: silent failures outnumber crashes about 2.5 to 1. An agentic retry loop raised both scores with no detectable change to the gap; a smaller model widened it 1.7×.
 
 Expert-corrected benchmark, no LLM-as-judge, every raw attempt published so any reader can recompute the numbers. 285 tests, 269 in CI. Run locally at zero cost.
 
@@ -99,7 +99,7 @@ Two write-ups on one argument: **the price per token is the easiest number to re
 
 Medical Q&A grounded in a PDF corpus, every answer citing the pages it came from.
 
-**The interesting part isn't retrieval — it's refusal.** Probing showed why a similarity threshold alone can't make it say *"my sources don't cover that"*: out-of-corpus medical questions score as close as in-scope ones.
+**The hard part is refusal.** Probing showed why a similarity threshold alone can't make it say *"my sources don't cover that"*: out-of-corpus medical questions score as close as in-scope ones.
 
 `Llama 2` · `LangChain` · `Pinecone` · `Flask`
 
@@ -108,7 +108,7 @@ Medical Q&A grounded in a PDF corpus, every answer citing the pages it came from
 
 ### 📑 [PDF Parser Benchmark](https://github.com/MohanVishe/pdf-parser-benchmark)
 
-A scored benchmark harness: four hand-verified documents — ten scripts including right-to-left and Indic, three columns, a dense table, a scan — scored on character and word error rate.
+A scored benchmark harness: four hand-verified documents (ten scripts including right-to-left and Indic, three columns, a dense table, a scan), scored on character and word error rate.
 
 No parser wins everywhere: one keeps three columns in reading order and loses every row of a ruled table, another keeps every row and reads straight across the columns.
 
@@ -132,7 +132,7 @@ Streaks, rates and rankings are pure Python; the model interprets them and never
 
 ### 🔍 [Product Similarity API](https://github.com/MohanVishe/product-similarity-api)
 
-Embedding-based product search served over HTTP, with price and rating filters applied inside the vector query — not after it — and a similarity score on every result. A 40-query retrieval eval runs in CI: recall@3 0.958, MRR 0.922.
+Embedding-based product search served over HTTP, with price and rating filters applied inside the vector query (not after it) and a similarity score on every result. A 40-query retrieval eval runs in CI: recall@3 0.958, MRR 0.922.
 
 `FastAPI` · `Chroma` · `Embeddings`
 
